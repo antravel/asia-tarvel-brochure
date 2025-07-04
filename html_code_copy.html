@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Natali - Travel Advisor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .brochure {
+            max-width: 420px;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 40px 35px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brochure::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        
+        .name {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.1rem;
+            color: #d4af37;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+            margin: 0 auto 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+        
+        .benefits-title {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        .benefits {
+            margin-bottom: 35px;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit:last-child {
+            border-bottom: none;
+        }
+        
+        .benefit:hover {
+            padding-left: 10px;
+        }
+        
+        .benefit-icon {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            color: #d4af37;
+            margin-top: 2px;
+        }
+        
+        .benefit-text {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ffffff;
+            padding: 18px 30px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44, 62, 80, 0.3);
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta:hover::before {
+            left: 100%;
+        }
+        
+        .contact {
+            text-align: center;
+            padding: 25px 0;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info:hover {
+            color: #d4af37;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .social-link:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .instagram { color: #e4405f; }
+        .linkedin { color: #0077b5; }
+        
+        .whatsapp-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            font-style: italic;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+        
+        .elegant-icon {
+            position: absolute;
+            font-size: 0.8rem;
+            color: rgba(212, 175, 55, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .elegant-icon:nth-child(1) { top: 20px; right: 30px; animation-delay: 0s; }
+        .elegant-icon:nth-child(2) { top: 60px; left: 20px; animation-delay: 1s; }
+        .elegant-icon:nth-child(3) { bottom: 40px; right: 25px; animation-delay: 2s; }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <div class="elegant-icon">✈</div>
+        <div class="elegant-icon">🌍</div>
+        <div class="elegant-icon">⭐</div>
+        
+        <div class="header">
+            <div class="name">Asia Natali</div>
+            <div class="title">Travel Advisor</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="intro">
+            "Creo esperienze di viaggio uniche e indimenticabili, trasformando ogni tua destinazione in un ricordo prezioso."
+        </div>
+        
+        <div class="benefits-title">Perché scegliere me</div>
+        
+        <div class="benefits">
+            <div class="benefit">
+                <div class="benefit-icon">💎</div>
+                <div class="benefit-text">Tariffe esclusive e vantaggi riservati ai miei clienti</div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">🎨</div>
+                <div class="benefit-text">Itinerari personalizzati studiati su misura per te</div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">🛡️</div>
+                <div class="benefit-text">Assistenza completa prima, durante e dopo il viaggio</div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-text">Organizzazione completa: nessun pensiero per te</div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-icon">🌟</div>
+                <div class="benefit-text">Accesso a esperienze esclusive e upgrade premium</div>
+            </div>
+        </div>
+        
+        <a href="https://tally.so/r/nrQa9R" target="_blank" class="cta">
+            Inizia a pianificare il tuo prossimo viaggio
+        </a>
+        
+        <div class="contact">
+            <div class="contact-label">Contattami</div>
+            <a href="tel:+393420272648" class="contact-info">📱 +39 342 027 2648</a>
+            <a href="mailto:asia.natali@fora.travel" class="contact-info">✉️ asia.natali@fora.travel</a>
+            
+            <a href="https://wa.me/393420272648?text=Ciao%20Asia!%20Sono%20interessato%20ai%20tuoi%20servizi%20di%20travel%20advisor" target="_blank" class="whatsapp-btn">
+                💬 Scrivimi su WhatsApp
+            </a>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/an.traveladvisor/" target="_blank" class="social-link instagram">
+                    📷
+                </a>
+                <a href="https://www.linkedin.com/in/asia-natali-1693491b6/" target="_blank" class="social-link linkedin">
+                    💼
+                </a>
+            </div>
+        </div>
+        
+        <div class="whatsapp-note">
+            Condividi con chi ama viaggiare come te
+        </div>
+    </div>
+</body>
+</html>
